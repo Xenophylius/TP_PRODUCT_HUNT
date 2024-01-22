@@ -5,21 +5,25 @@
 
 /*Police google font : Open Sans pour les titres*/
 /*Police google font : Montserrat pour les paragraphes*/
+/* Variables couleurs de base */
 :root {
  --main-font-family: 'Open Sans', sans-serif;
  --second-font-family: 'Montserrat', sans-serif;
+ --main-color : #023535;
+ --second-color : #0CABA8;
 }
 
 
 h1 {
 
-font-family: var(--main-font-family);   
-    
+  font-family: var(--main-font-family);   
+  color : var(--main-color);
 }
 
 
 p {
 
-    font-family: var(--second-font-family);   
-        
-    }
+  font-family: var(--second-font-family);   
+  color : var(--second-color);
+}
+
