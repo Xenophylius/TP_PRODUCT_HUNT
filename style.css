@@ -1,0 +1,14 @@
+/* Variables couleurs de base */
+:root {
+    --main-color : #023535;
+    --second-color : #0CABA8;
+}
+
+/* Exemple utilisation variable couleur */
+h1 {
+    color : var(--main-color);
+}
+
+p {
+    color : var(--second-color);
+}
