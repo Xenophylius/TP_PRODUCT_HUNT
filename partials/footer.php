@@ -1,6 +1,10 @@
- <section>
+ <section class="mt-5">
+<!-- ligne en dessous-->
+<section >
+            <div id="line_under_nav" class="mt-2" style="width: 100%; height: 100%; border: 1px rgba(111, 223, 221, 0.73) solid"></div>
+</section>
 
-
+<div><p style="font-size: 10pt;" class="mt-3 d-flex justify-content-center text-success">Product Hunt - 2024 ©</p></div>
  
  </section>
  
