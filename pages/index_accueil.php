@@ -1,4 +1,4 @@
-<?php include '../partials/header.php'; ?>
+<?php require_once '../partials/header.php'; ?>
 
 <main>
    
@@ -14,6 +14,8 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
+      <div><img src="../images/logo_appli_1.png" alt=""></div>
+
         Description : Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maxime obcaecati minima eius
         iste temporibus exercitationem ipsum dolores corrupti, et sit fuga natus amet dignissimos accusantium
         vitae fugit reprehenderit? Ex, at.
@@ -30,7 +32,17 @@
 <section>
         <div class="me-2" id="" >
                 <ul class="">
-                    <li class="">
+                    <li class="container">
+                                <div class=""><img id="logo_appli" src="../images/logo_appli_1.png" alt="logo_application_or_site"></div>
+                                <a style="color: #0CABA8;" class="active ml-4" aria-current="page" data-bs-toggle="modal"
+                                data-bs-target="#staticBackdrop" href="">Produits-1</a>
+                                <p style="font-family: 'Montserrat', sans-serif;">description - Lorem ipsum dolor,
+                                sit amet consectetur adipisicing elit.
+                                    ... <a  data-bs-toggle="modal"
+                                data-bs-target="#staticBackdrop" style="text-decoration-color: #0CABA8;" href="">plus d'infos.</a> </p>
+                        </li>
+
+                        <li class="container">
                                 <a style="color: #0CABA8;" class="active ml-3" aria-current="page" data-bs-toggle="modal"
                                 data-bs-target="#staticBackdrop" href="">Produits-1</a>
                                 <p style="font-family: 'Montserrat', sans-serif;">description - Lorem ipsum dolor,
@@ -39,19 +51,9 @@
                                 data-bs-target="#staticBackdrop" style="text-decoration-color: #0CABA8;" href="">plus d'infos.</a> </p>
                         </li>
 
-                        <li class="">
+                        <li class="container">
                                 <a style="color: #0CABA8;" class="active ml-3" aria-current="page" data-bs-toggle="modal"
-                                data-bs-target="#staticBackdrop" href="">Produits-1</a>
-                                <p style="font-family: 'Montserrat', sans-serif;">description - Lorem ipsum dolor,
-                                sit amet consectetur adipisicing elit.
-                                    ... <a  data-bs-toggle="modal"
-                                data-bs-target="#staticBackdrop" style="text-decoration-color: #0CABA8;" href="">plus d'infos.</a> </p>
-                        </li>
-
-                        <li class="">
-                                <a style="color: #0CABA8;" class="active ml-3" aria-current="page" data-bs-toggle="modal"
-                                data-bs-target="#staticBackdrop" href="">Produits-1</a>
-                                <p style="font-family: 'Montserrat', sans-serif;">description - Lorem ipsum dolor,
+                                data-bs-target="#staticBackdrop" href="">Produits-1</a><p style="font-family: 'Montserrat', sans-serif;">description - Lorem ipsum dolor,
                                 sit amet consectetur adipisicing elit.
                                     ... <a  data-bs-toggle="modal"
                                 data-bs-target="#staticBackdrop" style="text-decoration-color: #0CABA8;" href="">plus d'infos.</a> </p>

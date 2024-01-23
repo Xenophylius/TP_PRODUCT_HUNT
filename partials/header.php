@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -18,12 +18,12 @@
         <!-- creation de la navbar suivant les données de figma -->
         <section id="navbar">
             <nav class="navbar navbar-expand-lg">
-                <div class="container-fluid">
+                <div class="container-fluid d-flex flex-row">
 
                     <!-- integration du logo a la navbar -->
-                    <a class="navbar-brand" href="#"><img style="width:250px;height: 65px" src="../images/logo.png" alt="logo_product_hunt"></a>
+                    <a class="navbar-brand" href="#"><img src="../images/logo_product_hunt.png" style="width:250px;height: 65px" alt="logo_product_hunt"></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
                     </button>
 
                     <!-- navbar champs de recherche -->
@@ -31,19 +31,32 @@
                         <input class="form-control me-2" type="search" placeholder="Recherche Produit" aria-label="Search">
                         <button class="btn btn-outline-success" type="submit">Rechercher</button>
                     </form>
+                    &nbsp; &nbsp; |
+
 
                     <!-- navbar line direct vers les produits-->
                     <div class="me-2 collapse navbar-collapse" id="navbarSupportedContent" >
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link active ml-3" aria-current="page" data-bs-toggle="modal" data-bs-target="#staticBackdrop" href="">Produits</a>
+                                <a class="nav-link active ml-3" aria-current="page" data-bs-toggle="modal"
+                                data-bs-target="#staticBackdrop" href=""> &nbsp; &nbsp; Produits</a>
+                            </li>
+                            
+                    <!-- navbar lien nouveau produit-->
+                    <div class="me-2 collapse navbar-collapse" id="navbarSupportedContent" >
+                    &nbsp; &nbsp; |    
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active ml-3" aria-current="page" data-bs-toggle="modal"
+                                data-bs-target="#staticBackdrop" href=""> &nbsp; &nbsp; Nouveau produits</a>
                             </li>
 
+
+                           
                             <!-- navbar menus déroulant pour les categories-->
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Catégories
-                                </a>
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Catégories</a>
+
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="#">Applications</a></li>
                                     <li><a class="dropdown-item" href="#">Site Web</a></li>
@@ -54,7 +67,7 @@
                                 </ul>
                             </li>
 
-
+                            <!-- deconnexion et profil en justift-end-->
                             <div class="d-flex" id="navbarSupportedContent">
                                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                     <li class="nav-item">
@@ -64,23 +77,40 @@
                                     <button id="btn_profil" type="button" class="btn btn-success">Profil utilisateur</button>
                                 </ul>
 
+
+                                
                             </div>
                     </div>
+                </div>
             </nav>
         </section>
 
         <!-- ligne en dessous de la navbar-->
         <section>
-            <div id="line_under_nav" class="mt-2" style="width: 100%; height: 100%; border: 2px #0CABA8 solid"></div>
+            <div id="line_under_nav" class="mt-2" style="width: 100%; height: 100%; border: 1.5px #0CABA8 solid"></div>
         </section>
 
+       <!-- ligne btn bouton rappel -->  
+    <section container>
+            <div class="row d-flex flex">
 
-        <br>
-        <!--deuxieme ligne horizontal-->
-        <section>
-            <div id="line_under_nav" class="mt-2 d-flex justify-content-center" style="width: 1000px; border: 2px #0CABA8 solid"></div>
+             <div class=" justify-content-between m-2" role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="" role="group" aria-label="First group">
+                        <button type="button" class="btn">Produits &nbsp; &nbsp; |</button>
+                        <button type="button" class="btn">Commentaires &nbsp; &nbsp; |</button>
+                        <button type="button" class="btn">Utilisateurs en ligne</button>
+                     </div>
+  
+            </div>
+            </div>
+    </section>
+
+        <!--deuxieme ligne horizontal centrer-->
+        <section class=" grid text-center">
+            <div id="line_under_nav" class="g-col-6 g-col-md-4 mt-2" style="width: 1000px; border: 1.5px #0CABA8 solid"></div>
         </section>
- 
-    
     
     </main>
+
+    <br>
+    <br>
