@@ -28,3 +28,9 @@ p {
   color : var(--second-color);
 }
 
+#line_under_nav {
+
+  color : var(--second-color);
+  border: 3rem;
+}
+
