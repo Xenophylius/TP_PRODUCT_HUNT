@@ -1,15 +1,4 @@
 <?php
-session_start();
-
-// Si l'utilisateur n'est pas connecté, redirigé vers la page de connexion/inscription
-if (empty($_SESSION['id']) &&
-    empty($_SESSION['pseudo']) &&
-    empty($_SESSION['mail'])) {
-        header('Location: ../index.php?error=Inscrivez vous ou connectez vous pour accéder à cette page.');
-        die;
-}
-    require_once '../partials/header.php';
-    include_once '../partials/message.php';
     
     // Récupération de la liste des produits
     require_once('../process/connexion.php');
@@ -63,8 +52,4 @@ if (empty($_SESSION['id']) &&
                         
                 </section>
           <?php  } ?>
-</main>
 
-<?php
-    require_once '../partials/footer.php';
-?>
