@@ -138,7 +138,7 @@ font-family: Montserrat; font-weight: 400; word-wrap: break-word">Et deviens le 
 
       <!--deuxieme ligne horizontal centrer-->
       <section class=" grid text-center mt-5">
-      <div id="line_under_nav" class="g-col-6 g-col-md-4 mt-2" style="width: 289px; border: 1px rgba(111, 223, 221, 0.73) solid"></div>
+      <div id="line_under_nav" class="g-col-6 g-col-md-4 mt-2" style="width: 450px; border: 1px rgba(111, 223, 221, 0.73) solid"></div>
       </section>
  
 
