@@ -1,4 +1,12 @@
 <?php
+
+function dump($variable) {
+    echo '<pre>';
+    var_dump($variable);
+    echo '</pre>';
+
+}
+
     function dumpArray(array $nested_arrays): void {
             foreach ($nested_arrays as $key => $value) {
                 if (gettype($value) !== 'array') {
@@ -22,9 +30,3 @@
     
     dumpArray($GLOBALS);
 
-    function dump($variable) {
-        echo '<pre>';
-        var_dump($variable);
-        echo '</pre>';
-
-    }

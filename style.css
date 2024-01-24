@@ -71,6 +71,7 @@ border-color: #0caba820;
   color : var(--main-color);
 }
 
+
 .modal {
   visibility: hidden;
   opacity: 1;
@@ -146,4 +147,38 @@ border-color: #0caba820;
   right: 50px;
   color: rgb(214, 119, 30);
   text-decoration: none;
+
+  
+#slide {
+  position: fixed;
+  left: 30%;
+  right: 30%;
+  height: 55px;
+  top: -100px;
+  z-index: 10000000;
+  animation-name: slidein; 
+  animation-duration: 5s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: 2;
+  animation-direction: alternate;
+  
+  
+}
+
+
+
+@keyframes slidein {
+  0% {
+    top: -100px;
+    
+  }
+  70% {
+      top: 0;
+      
+    }
+  100% {
+    top: 0;
+    
+  }
+
 }

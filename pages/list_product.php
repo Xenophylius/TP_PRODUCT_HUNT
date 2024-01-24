@@ -5,6 +5,7 @@
         $listProduct = $db->prepare("SELECT * FROM products LIMIT 10");
         $listProduct->execute();
         $productsAll = $listProduct->fetchAll();
+
 ?>
 
 <main class="text-center">
@@ -16,7 +17,39 @@
                     <h5>Description du produit : </h5>
                     <p><i><?= $productsAll[$key]['description_product'] ?></i></p>
                     <h5>Images : </h5>
-                    <img src="../upload/<?= $productsAll[$key]['image_product'] ?>" class="w-25" alt="Image du produit">
+                    <img src="../upload/<?= $productsAll[$key]['image_product'] ?>" class="w-25" alt="Image du produit"><br>
+
+                        <?php 
+                            // Requete pour récupérer nombre de LIKE
+                            $id_product = $productsAll[$key]['id'];
+                            $counterLike = $db->prepare("SELECT count(*) FROM like_product WHERE id_product=$id_product");
+                            $counterLike->execute();
+                            $like = $counterLike->fetch();
+                        ?>
+
+                    <a href="../process/product/like_product.php?id_product=<?= $productsAll[$key]['id'] ?>" class="btn btn-success"><i class="fa-solid fa-circle-up fa-2xl"></i><h5 class="d-inline font-weight-bold px-2"><?= $like[0] ?></h5></a><br>
+                    <form action="../process/product/add_commentary.php?id_product=<?= $productsAll[$key]['id'] ?>" method="post" class="d-flex align-items-center justify-content-center">
+                        <textarea name="commentary" id="commentary" rows="5" placeholder="Ajoutez votre commentaire..."></textarea>
+                        <button type="submit" class="btn btn-success">Envoyer</button>
+                    </form>
+
+                        <?php 
+                            // Requete pour récupérer les commentaires
+                            $listCommentary = $db->prepare("SELECT * FROM commentary INNER JOIN users ON commentary.id_user = users.id WHERE id_product=?");
+                            $listCommentary->execute([$id_product]);
+                            $commentary = $listCommentary->fetchAll();
+
+                            // Boucle pour fetchAll les commentaires
+                            foreach ($commentary as $key => $value) { ?>
+                                <section class="w-100">
+                                    <h5>Commentaire de : <?= $commentary[$key]['pseudo'] ?> du <i><?= $commentary[$key]['created_at'] ?></i></h5>
+                                    <p>Le commentaire : <?= $commentary[$key]['commentary'] ?></p>
+                                </section>
+
+                            <?php  } ?>
+                        
+
+                        
                 </section>
           <?php  } ?>
 
