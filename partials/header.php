@@ -23,7 +23,7 @@
                 <div class="container-fluid d-flex flex-row">
 
                     <!-- integration du logo a la navbar -->
-                    <a class="navbar-brand" href="#"><img src="../images/logo_product_hunt.png" style="width:200px;height: 54px" alt="logo_product_hunt"></a>
+                    <a class="navbar-brand" href="../pages/index_accueil.php"><img src="../images/logo_product_hunt.png" style="width:200px;height: 54px" alt="logo_product_hunt"></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -79,7 +79,7 @@
                                 <a class="nav-link active ml-3 text-secondary" aria-current="page" href="../process/authentification/deco.php">Deconnexion</a>
                             </li>
 
-                            <button id="btn_profil" type="button" class="btn btn-success">Profil utilisateur</button>
+                            <a id="btn_profil" href="../pages/profil.php" class="btn btn-success" >Profil utilisateur</a>
                         </ul>
                     </div>
             </nav>
