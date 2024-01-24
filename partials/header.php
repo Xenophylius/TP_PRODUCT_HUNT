@@ -48,7 +48,7 @@
                                 &nbsp; &nbsp; |
                                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                     <li class="nav-item">
-                                        <a class="nav-link active ml-3" aria-current="page" href="../new_product.php"> &nbsp; &nbsp; Nouveau produits</a>
+                                        <a class="nav-link active ml-3" aria-current="page" href="../pages/new_product.php"> &nbsp; &nbsp; Nouveau produits</a>
                                     </li>
 
 
@@ -76,7 +76,7 @@
                     <div style="display: flex; justify-content: end;" class="d-flex" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link active ml-3 text-secondary" aria-current="page" href="../index.php">Deconnexion</a>
+                                <a class="nav-link active ml-3 text-secondary" aria-current="page" href="../process/authentification/deco.php">Deconnexion</a>
                             </li>
 
                             <button id="btn_profil" type="button" class="btn btn-success">Profil utilisateur</button>
