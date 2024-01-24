@@ -65,3 +65,7 @@ border-right: solid;
 border-color: #0caba820;
 
 }
+
+.textColor {
+  color : var(--main-color);
+}
