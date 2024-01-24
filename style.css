@@ -36,6 +36,7 @@
 
 
 #welcome {
+
   width: 800px;
   background: rgba(12, 171, 168, 0.052);
   color : var(--main-color);
@@ -68,4 +69,81 @@ border-color: #0caba820;
 
 .textColor {
   color : var(--main-color);
+}
+
+.modal {
+  visibility: hidden;
+  opacity: 1;
+  position: absolute;
+  top: 0; right: 0;
+  bottom: 0; left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(133, 146, 144, 0.7);
+  transition: all .6s;
+}
+
+.modal:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+.modal_content {
+  border-radius: 5px;
+  position: relative;
+  width: 1200px;
+  max-width: 90%;
+  background: white;
+  padding: 1.5em 2em;
+  display: flex;
+}
+
+
+.modal_close {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  color: rgb(214, 119, 30);
+  text-decoration: none;
+}
+
+
+.modal2 {
+  visibility: hidden;
+  opacity: 1;
+  position: absolute;
+  top: 0; right: 0;
+  bottom: 0; left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(133, 146, 144, 0.7);
+  transition: all .6s;
+}
+
+.modal2:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+.modal2_content {
+  border-radius: 5px;
+  position: relative;
+  width: 1200px;
+  max-width: 90%;
+  background: white;
+  padding: 1.5em 2em;
+  display: flex;
+}
+
+
+.modal2_close {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  color: rgb(214, 119, 30);
+  text-decoration: none;
 }

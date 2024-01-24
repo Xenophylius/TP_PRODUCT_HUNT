@@ -40,7 +40,7 @@
                     <div class="me-2 collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link active ml-3" aria-current="page" data-bs-toggle="modal" data-bs-target="#staticBackdrop" href=""> &nbsp; &nbsp; Produits</a>
+                                <a class="nav-link active ml-3" href="#demo"> &nbsp; &nbsp; Produits</a>
                             </li>
 
                             <!-- navbar lien nouveau produit-->
