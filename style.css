@@ -28,19 +28,15 @@
 
 
 #bloc_right {
-
   color : var(--main-color);
   font-family : var(--main-font-family);
-  
 }
 
 
 #welcome {
-
   width: 800px;
   background: rgba(12, 171, 168, 0.052);
-  color : var(--main-color);
-  
+  color : var(--main-color);  
 }
 
 #menu2 {
@@ -72,7 +68,46 @@ border-color: #0caba820;
 }
 
 
-.modal {
+
+
+#bouton_profil {
+  background-color: var(--second-color);
+  color: white;
+}
+
+
+#bouton_profil:hover {
+  background-color: var(--main-color);
+  
+}
+
+
+#bouton_produits_little_bar {
+  
+  font-family : var(--main-font-family);
+  font-size: 9pt;
+  background-color: var(--second-color);
+  border: var(--second-color);
+  color : white;
+  border-radius: 1rem;
+
+}
+
+
+#bouton_produits_little_bar:hover {
+  
+  font-family : var(--main-font-family);
+  font-size: 9pt;
+  background-color: var(--main-color);
+  border: var(--second-color);
+  color : white;
+  border-radius: 1rem;
+
+}
+
+
+/* propriétés de la modal 1 pour liste de  produits */
+/* .modal {
   visibility: hidden;
   opacity: 1;
   position: absolute;
@@ -111,6 +146,8 @@ border-color: #0caba820;
 }
 
 
+/* propriétés de la modal 2 pour un produit */
+/* 
 .modal2 {
   visibility: hidden;
   opacity: 1;
@@ -148,7 +185,9 @@ border-color: #0caba820;
   color: rgb(214, 119, 30);
   text-decoration: none;
 
-  
+} */ */
+
+
 #slide {
   position: fixed;
   left: 30%;
@@ -182,3 +221,4 @@ border-color: #0caba820;
   }
 
 }
+

@@ -31,7 +31,7 @@
                     <!-- navbar champs de recherche -->
                     <form class="d-flex" role="search">
                         <input class="form-control me-2" type="search" placeholder="Recherche Produit" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Rechercher</button>
+                        <button id="bouton_profil" class="btn btn-outline-success" type="submit">Rechercher</button>
                     </form>
                     &nbsp; &nbsp; |
 
@@ -58,12 +58,12 @@
                                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Catégories</a>
 
                                         <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="#">Applications</a></li>
-                                            <li><a class="dropdown-item" href="#">Site Web</a></li>
+                                            <li><a class="dropdown-item" href="../pages/list_product.php">Applications</a></li>
+                                            <li><a class="dropdown-item" href="../pages/list_product.php">Site Web</a></li>
                                             <li>
                                                 <hr class="dropdown-divider">
                                             </li>
-                                            <li><a class="dropdown-item" href="#">Autres</a></li>
+                                            <li><a class="dropdown-item" href="../pages/list_product.php">Autres</a></li>
                                         </ul>
                                     </li>
 
@@ -79,7 +79,7 @@
                                 <a class="nav-link active ml-3 text-secondary" aria-current="page" href="../process/authentification/deco.php">Deconnexion</a>
                             </li>
 
-                            <a id="btn_profil" href="../pages/profil.php" class="btn btn-success" >Profil utilisateur</a>
+                            <a id="bouton_profil" href="../pages/profil.php" class="btn btn-success" >Profil utilisateur</a>
                         </ul>
                     </div>
             </nav>
@@ -96,11 +96,11 @@
 
                 <div class="m-2" role="toolbar" aria-label="Toolbar with button groups">
                     <div class="" role="group" aria-label="First group">
-                        <button id="menu2" style="font-size: 10pt;" type="button" class="btn text-white"><strong>Produits</strong></button>
+                        <button id="bouton_produits_little_bar" type="button" class="p-1"><strong>Produits</strong></button>
                         &nbsp; &nbsp; | &nbsp;
                         <button id="menu2_color" style="font-size: 10pt;" type="button" class="btn"><strong>Best Commentaires</strong></button>
                         &nbsp; &nbsp; | &nbsp;
-                        <button id="menu2_color" style="font-size: 10pt;" type="button" class="btn"><strong>Utilisateurs en ligne</strong></button>
+                        <button id="menu2_color" style="font-size: 10pt;" type="button" class="btn"><strong>Liste utilisateurs</strong></button>
                         &nbsp; &nbsp; | &nbsp;
 
                         <!-- organism pour contrle ethique des applis ou des IA -->
