@@ -13,125 +13,107 @@ if (
 
 require_once '../partials/header.php';
 include_once '../partials/message.php';
-?>
+// include_once '../debug/debug.php';
 
-<main>
-
-
-  <!-- Création de la Modal de base -->
-
-  <?php
+  
   // Récupération de la liste des produits
   require_once('../process/connexion.php');
   $listProduct = $db->prepare("SELECT * FROM products LIMIT 10");
   $listProduct->execute();
   $productsAll = $listProduct->fetchAll();
-  
   ?>
+<main>
 
-  <!-- la Modal de base -->
-  <a href="#demo"></a>
 
-  <div id="demo" class="modal">
+<!-- Modal de base pour afficher la liste des produits -->
+<div id="demo" class="modal">
     <div class="modal_content">
-      <section class="p-5">
+      
+    <div class="container">
         <?php
+        // Boucle pour afficher les produits
+        foreach ($productsAll as $key => $value) { ?>
 
+
+        <!-- Modal background avec hover couleur et row -->      
+            <div type="" id="" class="row justify-item-start rounded-2 m-2"
+                onmouseover="this.style.background='linear-gradient(to left, #FFFBF2, white)';
+                this.style.color='#FF0000';" onmouseout="this.style.background='';this.style.color='';">
+
+              <a href="#demo"></a>
+
+
+    
+              <!-- Modal ligne de l'image du produit telecharger par le client (pour l'instant une) --> 
+              <div class=col-2>
+                  <img style="width: 2rem;" src="../upload/<?= $productsAll[$key]['image_product'] ?>" alt="Image du produit">
+              </div>
+    
+              <!-- Modal ligne du titre du produit --> 
+              <div class=col-3>
+                <a style="font-family: Open Sans; color: #023535;" class="bloc" href="../process/product/product_one.php">
+                <strong><?= $productsAll[$key]['title_product'] ?></strong></a> <form action="" method="$_POST">
+                <input type="hidden" name="id"></form>
+              </div>
+
+              <!-- Modal ligne de la description du produit --> 
+              <div class=col-7>
+                  <p class="" style="font-family: 'Montserrat', sans-serif;">
+                      <i><?= substr($productsAll[$key]['description_product'], 0, 12) . ' ...' ?></i><a style="text-decoration-color: #0CABA8;"
+                      href="#demo"></a>
+                  </p>
+              </div>
+        </div>
+
+      <?php  } ?>
+      <a href="#" class="modal_close">&times;</a>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal de base pour aficher un produit avec toutes ses propriétés -->
+<div id="demo2" class="modal">
+    <div class="modal_content">
+      
+    <div class="container">
+        <?php
         // Boucle pour afficher les produits
         foreach ($productsAll as $key => $value) { ?>
           
-          <section class="container" id="">
+        
 
-<div id="" class="row justify-item-between rounded-2 m-2" onmouseover="this.style.background='linear-gradient(to left, #FFFBF2, white)';this.style.color='#FF0000';" onmouseout="this.style.background='';this.style.color='';">
+        <!-- Modal background avec hover couleur et row -->      
+        <form action="GET"> <input type="" value=""> <div type="" id="" class="row justify-item-start rounded-2 m-2" onmouseover="this.style.background='linear-gradient(to left, #FFFBF2, white)';
+            this.style.color='#FF0000';" onmouseout="this.style.background='';this.style.color='';"></form>
 
-  <a href="#demo2"></a>
-
-  <div class=col-1>
-    <img style="width: 100%;" src="../upload/<?= $productsAll[$key]['image_product'] ?>" alt="Image du produit">
-  </div>
-
-  <div class=col-4>
-    <a style="font-family: Open Sans; font-weight: 700; word-wrap: break-word; color: #023535;" class=""><strong><?= $productsAll[$key]['title_product'] ?></strong></a>
-  </div>
-
-  <div class=col-7>
-    <p class="" style="font-family: 'Montserrat', sans-serif;">
-      <i><?= substr($productsAll[$key]['description_product'], 0, 12) . ' ...' ?></i><a style="text-decoration-color: #0CABA8;" href="#demo"></a>
-    </p>
-  </div>
-
-</div>
-
-</section>
-<?php  } ?>
-
-
-
-      <a href="#" class="modal_close">&times;</a>
-    </div>
-  </div>
-  </button>
-
-
-
-  <!-- Création de la Modal de base -->
-
-  <?php
-  // Récupération de la liste des produits
-
-//   // on prepare la requete qui, par la connexion, recupere des question avec leur id
-//   require_once('../process/connexion.php');
-//   $preparedRequest = $db->prepare("SELECT * FROM products WHERE id = ?");
-//   $preparesRequest->execute([
-//     $_POST['id']
-//   ]);
-
-
-//   $productsql = $preparedRequest->fetch(PDO::FETCH_ASSOC);
-
-//   // on precise que l'on veut la valeur de cette requete
-//   $idproduct = $productsql['id'];
-// ?>
-<!-- //   <div data-id=<?= $idproduct ?>></div> -->
-
-
-
-  <!-- la Modal de base -->
-  <a href="#demo2"></a>
-
-  <div id="demo2" class="modal2">
-    <div class="modal2_content">
-      <section class="">
-        <?php
-
-        // Boucle pour afficher les produits
-        foreach ($productsAll as $key => $value) { ?>
-          <section class="" id="">
-
-            <div class="container">
-              <div class="">
-
-                <!-- element dans la modal -->
-                <img style="width: 10%;" src="../upload/<?= $productsAll[$key]['image_product'] ?>" class="" alt="Image du produit">
-
-                <a style="font-family: Open Sans; font-weight: 700; word-wrap: break-word; color: #023535;" class=""><strong><?= $productsAll[$key]['title_product'] ?></strong></a>
-
-                <p class="" style="font-family: 'Montserrat', sans-serif;">
-                  <i><?= substr($productsAll[$key]['description_product'], 0, 15) ?></i><a style="text-decoration-color: #0CABA8;"></a>
-                </p>
+              <a href="#demo"></a>
+    
+              <!-- Modal ligne de l'image du produit telecharger par le client (pour l'instant une) --> 
+              <div class=col-2>
+                  <img style="width: 2rem;" src="../upload/<?= $productsAll[$key]['image_product'] ?>" alt="Image du produit">
+              </div>
+    
+              <!-- Modal ligne du titre du produit --> 
+              <div class=col-3>
+                <a style="font-family: Open Sans; color: #023535;" class="" href="./">
+                <strong><?= $productsAll[$key]['title_product'] ?></strong></a>
               </div>
 
-            </div>
+              <!-- Modal ligne de la description du produit --> 
+              <div class=col-7>
+                  <p class="" style="font-family: 'Montserrat', sans-serif;">
+                      <i><?= substr($productsAll[$key]['description_product'], 0, 12) . ' ...' ?></i><a style="text-decoration-color: #0CABA8;"
+                      href="#demo"></a>
+                  </p>
+              </div>
+        </div>
 
-          </section>
-        <?php  } ?>
-
-      </section>
-
+      <?php  } ?>
       <a href="#" class="modal_close">&times;</a>
     </div>
   </div>
-
+</div>
 
 
 
@@ -142,10 +124,11 @@ include_once '../partials/message.php';
       <div class="row">
         <div id="menu_left" class="col-8">
 
-          <!-- Titre welcome -->
+          <!-- bloc separateur Titre welcome -->
           <div id="welcome" class="p-4">
             <div style="width: 90%; height: 100%; color: #023535; font-size: 24px; font-family: Open Sans;
             font-weight: 600; word-wrap: break-word">Welcome to Product Hunt!</div>
+            
             <div style="width: 100%; height: 100%"><span style="color: #023535; font-size: 16px;
               font-family: Montserrat; font-weight: 400; word-wrap: break-word">The place to launch and discover new tech products. </span>
               <a href="./new_product.php" style="color: #0CABA8; font-size: 16px; font-family: Montserrat; font-weight: 400; word-wrap: break-word">Take a Tour.</a>
@@ -153,18 +136,19 @@ include_once '../partials/message.php';
           </div>
 
           <br>
-          <br>
-
-
-          <!-- Liste des applications Menu gauche-->
+          
+          <!-- Liste des applications Menu central-->
           <section>
-            <?php
-            // Boucle pour afficher les produits
-            foreach ($productsAll as $key => $value) { ?>
+            
+            
+            <!-- // Boucle pour afficher les produits -->
+            <?php foreach ($productsAll as $key => $value) { ?>
 
-              <section class="container m-3" id="">
+              <section  class="container m-3" id="">
 
-                <div id="" class="row justify-item-between rounded-2" onmouseover="this.style.background='linear-gradient(to left, #FFFBF2, white)';this.style.color='#FF0000';" onmouseout="this.style.background='';this.style.color='';">
+                <div id="" style="width: 95%; height: 100%;" class="row justify-item-between rounded-2"
+                onmouseover="this.style.background='linear-gradient(to left, #b5ff5421, white)';this.style.color='#FF0000';"
+                onmouseout="this.style.background='';this.style.color='';">
 
                   <a href="#demo2"></a>
 
@@ -206,21 +190,25 @@ font-family: Montserrat; font-weight: 400; word-wrap: break-word">Et deviens le 
 
 
         <!-- Liste des meilleurs UP Menu à droite-->
-        <div id="bloc_right" class="mt-3 ms-5 col-3">
+
+<?php
+          // Récupération de la liste des produits
+          require_once('../process/connexion.php');
+          $listlikes = $db->prepare("SELECT * FROM products JOIN like_product ON products.id = like_product.id_product ORDER BY counter_product DESC LIMIT 3");
+          $listlikes->execute();
+          $likesAll = $listlikes->fetchAll();
+ ?>
+  <div id="bloc_right" class="mt-3 ms-5 col-3">
 
           <div style="color: #023535; font-size: 16px; font-family: Open Sans;">TOP UP !</div>
 
+<?php
+foreach ($likesAll as $key => $value) { ?>
+
           <div class="mt-3" style="font-size: small;">
-            <p><strong>Application WOODOO - 55 up</strong></p>
-          </div>
-          <div style="font-size: small;">
-            <p><strong>Site Web DESIGNEEE - 42 up</strong></p>
-          </div>
-          <div style="font-size: small;">
-            <p><strong>Reseau Social Profil BD - 21 up</strong></p>
-          </div>
-
-
+            <p><strong><?= $likesAll[$key]['title_product'] ?> - <strong><?= $likesAll[$key]['counter_product'] ?></p>
+            </div>
+            <?php  } ?>
 
           <!--deuxieme ligne horizontal centrer-->
           <section class=" grid text-center mt-5">
@@ -233,45 +221,34 @@ font-family: Montserrat; font-weight: 400; word-wrap: break-word">Et deviens le 
           <div class="mt-3 col-7">
           <div style="color: #023535; font-size: 16px; font-family: Open Sans;">TOP COMMENTAIRES !</div>
 
-            <!-- Liste des meilleurs Comment Menu à droite contenu par user-->
+<?php
+          // Récupération de la liste des produits
+  require_once('../process/connexion.php');
+  $listusers = $db->prepare("SELECT * FROM users JOIN commentary ON users.id = commentary.id_user ORDER BY created_at DESC LIMIT 3");
+  $listusers->execute();
+  $usersAll = $listusers->fetchAll();
+
+  // var_dump($usersAll);
+  // die;
+  
+
+            // <!-- Liste des meilleurs Comment Menu à droite contenu par user-->
+            
+            foreach ($usersAll as $key => $value) { ?>
+            
             <div class="mt-3" style="color: #023535; font-size: 15px; font-family: Open Sans;
             font-weight: 700; word-wrap: break-word">
-              <p>User :</p>
+             <a style="font-family: Open Sans; color: #023535;" class="" href="./">
+                <strong><?= $usersAll[$key]['pseudo'] ?></strong></a>
             </div>
 
-            <div class="" style="font-style: oblique; font-size: 13px;">
-              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit...
-                <a data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="text-decoration-color: #0CABA8;" href="">suite...</a>
-              </p>
-            </div>
+            <div class="fw-lighter" style="font-family: Open Sans; font-size: 9px"><p><?= $usersAll[$key]['created_at'] ?></p></div>
 
-
-
-            <div class="mt-3" style="color: #023535; font-size: 15px; font-family: Open Sans;
-font-weight: 700; word-wrap: break-word">
-              <p>User 3 :</p>
-            </div>
-
-            <div class="" style=" font-style: oblique; font-size: 13px;">
-              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit... <a data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="text-decoration-color: #0CABA8;" href="">suite...</a></p>
-            </div>
-
-
-
-            <div class="mt-3" style="color: #023535; font-size: 15px; font-family: Open Sans;
-font-weight: 700; word-wrap: break-word">
-              <p>User 2 :</p>
-            </div>
-
-            <div class="mt-3" style=" font-style: oblique; font-size: 13px;">
-              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit...<a data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="text-decoration-color: #0CABA8;" href="">suite...</a></p>
-            </div>
-
-
-          </div>
-        </div>
-
-
+            <div class="" style="font-style: oblique; font-size: 12px;">
+              <p><?= $usersAll[$key]['commentary'] ?><a style="text-decoration-color: #0CABA8;" href="#demo">...suite</a></p></div>
+            
+            <?php  } ?>
+    
 
 
   </section>

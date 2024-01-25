@@ -9,6 +9,17 @@ if (empty($_SESSION['id']) &&
         die;
 }
 
+<?php 
+session_start();
+
+// Si l'utilisateur n'est pas connecté, redirigé vers la page de connexion/inscription
+if (empty($_SESSION['id']) &&
+    empty($_SESSION['pseudo']) &&
+    empty($_SESSION['mail'])) {
+        header('Location: ../index.php?error=Inscrivez vous ou connectez vous pour accéder à cette page.');
+        die;
+}
+
 
     
     // Récupération de la liste des produits
@@ -21,13 +32,37 @@ if (empty($_SESSION['id']) &&
         include_once '../partials/message.php';
 ?>
 
+
+  <!-- Liste des applications menu de gauche -->
+  <section>
+
+    <div class="container">
+      <div class="row">
+        <div id="menu_left" class="col-8">
+
+          <!-- Titre welcome -->
+          <div id="welcome" class="p-4">
+            <div style="width: 90%; height: 100%; color: #023535; font-size: 24px; font-family: Open Sans;
+            font-weight: 600; word-wrap: break-word">Liste des Produits</div>
+            <div style="width: 100%; height: 100%"><span style="color: #023535; font-size: 16px;
+              font-family: Montserrat; font-weight: 400; word-wrap: break-word">The place to launch and discover new tech products. </span>
+              <a href="./new_product.php" style="color: #0CABA8; font-size: 16px; font-family: Montserrat; font-weight: 400; word-wrap: break-word">Take a Tour.</a>
+            </div>
+          </div>
+
+          <br>
+          <br>
+          <!-- Liste des applications Menu gauche-->
+          <section>
+           
+
 <main class="text-center">
         <?php
         // Boucle pour afficher les produits
             foreach ($productsAll as $key => $value) { ?>
-                <section class="w-50 rounded-5 mx-auto my-3" id="inscription">
-                    <h3>Titre du produit : <strong><?= $productsAll[$key]['title_product'] ?></strong></h3>
-                    <h5>Description du produit : </h5>
+                <section class="w-30 rounded-5 container" id="">
+                    <h3 class="row"><strong><?= $productsAll[$key]['title_product'] ?></strong></h3>
+                    <h5></h5>
                     <p><i><?= $productsAll[$key]['description_product'] ?></i></p>
                     <h5>Images : </h5>
                     <img src="../upload/<?= $productsAll[$key]['image_product'] ?>" class="w-25" alt="Image du produit"><br>
@@ -64,9 +99,5 @@ if (empty($_SESSION['id']) &&
 
                         
                 </section>
-          <?php  } 
-          
-        include_once '../partials/footer.php'?>
-
-
+          <?php  } ?>
 
