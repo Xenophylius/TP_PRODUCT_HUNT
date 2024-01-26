@@ -67,6 +67,41 @@ border-color: #0caba820;
   color : var(--main-color);
 }
 
+#bouton_profil {
+  background-color: var(--second-color);
+  color: white;
+}
+
+
+#bouton_profil:hover {
+  background-color: var(--main-color);
+
+}
+
+
+#bouton_produits_little_bar {
+
+  font-family : var(--main-font-family);
+  font-size: 9pt;
+  background-color: var(--second-color);
+  border: var(--second-color);
+  color : white;
+  border-radius: 1rem;
+
+}
+
+
+#bouton_produits_little_bar:hover {
+
+  font-family : var(--main-font-family);
+  font-size: 9pt;
+  background-color: var(--main-color);
+  border: var(--second-color);
+  color : white;
+  border-radius: 1rem;
+
+}
+
 #slide {
   position: fixed;
   left: 30%;
