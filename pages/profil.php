@@ -27,13 +27,6 @@ $products = $productUser->fetchAll();
 
 ?>
 
-<<<<<<< Updated upstream
-<main class="text-center">
-    <section>
-        <h3 class="textColor">Votre pseudo : <?= ucfirst($userInfo['pseudo']) ?></h3>
-        <h3 class="textColor">Votre mail : <?= $userInfo['mail'] ?></h3>
-    </section>
-=======
 <section class="container">
 
 <div class="d-flex justify-content-Evenly">
@@ -44,7 +37,6 @@ $products = $productUser->fetchAll();
         <div class="row">
 
             <div class="d-flex align-items-start flex-column m-3">
->>>>>>> Stashed changes
 
                 <div id="picture_profil" class="m-2">
                     <?php
@@ -54,7 +46,7 @@ $products = $productUser->fetchAll();
                     <?php } else {
                     ?>
                         <img src="../upload/photoProfil/<?= $userInfo['image'] ?>" alt="Photo du profil" class="w-50 rounded-circle"> <?php } ?>
-                    <form action="../process/authentification/add_image.php" method="post" enctype="multipart/form-data">
+                    <form action="../../process/authentification/add_image.php" method="post" enctype="multipart/form-data">
 
 
                         <div class="mb-auto p-2">
