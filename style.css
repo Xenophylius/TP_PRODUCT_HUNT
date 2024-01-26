@@ -11,6 +11,7 @@
  --second-font-family: 'Montserrat', sans-serif;
  --main-color : #023535;
  --second-color : #0CABA8;
+ --third-color : #80ac8093;
 }
 
 
@@ -26,18 +27,6 @@
   opacity: 0.7;
 }
 
-
-#bloc_right {
-  color : var(--main-color);
-  font-family : var(--main-font-family);
-}
-
-
-#welcome {
-  width: 800px;
-  background: rgba(12, 171, 168, 0.052);
-  color : var(--main-color);  
-}
 
 #menu2 {
 
@@ -58,8 +47,7 @@
 
 #menu_left {
 
-border-right: solid;
-border-color: #0caba820;
+border-right: 1px solid var(--third-color);
 
 }
 
@@ -67,7 +55,45 @@ border-color: #0caba820;
   color : var(--main-color);
 }
 
+
+#bouton_profil {
+  background-color: var(--second-color);
+  color: white;
+}
+
+
+#bouton_profil:hover {
+ background-color: var(--main-color);
+  
+}
+
+
+#bouton_produits_little_bar {
+ 
+  font-family : var(--main-font-family);
+  font-size: 9pt;
+  background-color: var(--second-color);
+  border: var(--second-color);
+  color : white;
+  border-radius: 1rem;
+
+}
+
+
+#bouton_produits_little_bar:hover {
+  
+  font-family : var(--main-font-family);
+  font-size: 9pt;
+  background-color: var(--main-color);
+  border: var(--second-color);
+  color : white;
+  border-radius: 1rem;
+
+}
+
+
 #slide {
+  
   position: fixed;
   left: 30%;
   right: 30%;
@@ -100,3 +126,66 @@ border-color: #0caba820;
   }
 
 }
+
+#menu_top_comm_pseudo {
+  font-size: 11pt;
+  font-family : var(--main-font-family);
+  color: var(--second-color);
+
+}
+
+
+#menu_top_comm_date {
+  font-size: 8pt;
+  font-family : var(--main-font-family);
+  color: var(--second-color);
+
+
+
+}
+
+#menu_top_comm_commentary {
+  font-size: 9pt;
+  font-family : var(--second-font-family);
+  
+  }
+
+
+  #menu_up {
+    color: var(--third-color);
+    width: 300px;
+    border-top: 1px solid ;
+    width: 100%; height: 100%;
+  }
+
+
+  
+  #text_big_title {
+  font-weight: bold;
+  font-size: 21pt;
+  font-family : var(--main-font-family);
+
+
+  }
+  
+  
+  #text_menu {
+
+  font-size: 9pt;
+  font-family : var(--second-font-family);
+  
+  }
+
+
+  #little_title_accueil {
+    font-size: 10pt;
+    font-family : var(--second-font-family);
+
+  }
+
+  #liens {
+    font-style: italic;
+    color: var(--main-font-family);
+
+  }
+

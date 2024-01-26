@@ -24,116 +24,22 @@ include_once '../partials/message.php';
   ?>
 <main>
 
-
-<!-- Modal de base pour afficher la liste des produits -->
-<div id="demo" class="modal">
-    <div class="modal_content">
-      
-    <div class="container">
-        <?php
-        // Boucle pour afficher les produits
-        foreach ($productsAll as $key => $value) { ?>
-
-
-        <!-- Modal background avec hover couleur et row -->      
-            <div type="" id="" class="row justify-item-start rounded-2 m-2"
-                onmouseover="this.style.background='linear-gradient(to left, #FFFBF2, white)';
-                this.style.color='#FF0000';" onmouseout="this.style.background='';this.style.color='';">
-
-              <a href="#demo"></a>
-
-
-    
-              <!-- Modal ligne de l'image du produit telecharger par le client (pour l'instant une) --> 
-              <div class=col-2>
-                  <img style="width: 2rem;" src="../upload/<?= $productsAll[$key]['image_product'] ?>" alt="Image du produit">
-              </div>
-    
-              <!-- Modal ligne du titre du produit --> 
-              <div class=col-3>
-                <a style="font-family: Open Sans; color: #023535;" class="bloc" href="../process/product/product_one.php">
-                <strong><?= $productsAll[$key]['title_product'] ?></strong></a> <form action="" method="$_POST">
-                <input type="hidden" name="id"></form>
-              </div>
-
-              <!-- Modal ligne de la description du produit --> 
-              <div class=col-7>
-                  <p class="" style="font-family: 'Montserrat', sans-serif;">
-                      <i><?= substr($productsAll[$key]['description_product'], 0, 12) . ' ...' ?></i><a style="text-decoration-color: #0CABA8;"
-                      href="#demo"></a>
-                  </p>
-              </div>
-        </div>
-
-      <?php  } ?>
-      <a href="#" class="modal_close">&times;</a>
-    </div>
-  </div>
-</div>
-
-
-<!-- Modal de base pour aficher un produit avec toutes ses propriétés -->
-<div id="demo2" class="modal">
-    <div class="modal_content">
-      
-    <div class="container">
-        <?php
-        // Boucle pour afficher les produits
-        foreach ($productsAll as $key => $value) { ?>
-          
-        
-
-        <!-- Modal background avec hover couleur et row -->      
-        <form action="GET"> <input type="" value=""> <div type="" id="" class="row justify-item-start rounded-2 m-2" onmouseover="this.style.background='linear-gradient(to left, #FFFBF2, white)';
-            this.style.color='#FF0000';" onmouseout="this.style.background='';this.style.color='';"></form>
-
-              <a href="#demo"></a>
-    
-              <!-- Modal ligne de l'image du produit telecharger par le client (pour l'instant une) --> 
-              <div class=col-2>
-                  <img style="width: 2rem;" src="../upload/<?= $productsAll[$key]['image_product'] ?>" alt="Image du produit">
-              </div>
-    
-              <!-- Modal ligne du titre du produit --> 
-              <div class=col-3>
-                <a style="font-family: Open Sans; color: #023535;" class="" href="./">
-                <strong><?= $productsAll[$key]['title_product'] ?></strong></a>
-              </div>
-
-              <!-- Modal ligne de la description du produit --> 
-              <div class=col-7>
-                  <p class="" style="font-family: 'Montserrat', sans-serif;">
-                      <i><?= substr($productsAll[$key]['description_product'], 0, 12) . ' ...' ?></i><a style="text-decoration-color: #0CABA8;"
-                      href="#demo"></a>
-                  </p>
-              </div>
-        </div>
-
-      <?php  } ?>
-      <a href="#" class="modal_close">&times;</a>
-    </div>
-  </div>
-</div>
-
-
-
   <!-- Liste des applications menu central -->
   <section>
 
     <div class="container">
       <div class="row">
-        <div id="menu_left" class="col-8">
+        <div id="menu_left" class="col-8 p-4">
 
           <!-- bloc separateur Titre welcome -->
-          <div id="welcome" class="p-4">
-            <div style="width: 90%; height: 100%; color: #023535; font-size: 24px; font-family: Open Sans;
-            font-weight: 600; word-wrap: break-word">Welcome to Product Hunt!</div>
+          <div class="p-3" style="background-color: #92dfb031;" id="bloc_titre">
+            <div id="text_big_title">
+            <div>Welcome to Product Hunt!</div></div>
             
-            <div style="width: 100%; height: 100%"><span style="color: #023535; font-size: 16px;
-              font-family: Montserrat; font-weight: 400; word-wrap: break-word">The place to launch and discover new tech products. </span>
-              <a href="./new_product.php" style="color: #0CABA8; font-size: 16px; font-family: Montserrat; font-weight: 400; word-wrap: break-word">Take a Tour.</a>
+            <div id="little_title_accueil"><span>The place to launch and discover new tech products. </span>
+              <a href="./new_product.php" id="liens">Take a your chance.</a>
             </div>
-          </div>
+            </div>
 
           <br>
           
@@ -157,12 +63,13 @@ include_once '../partials/message.php';
                   </div>
 
                   <div class=col-4>
-                    <a style="font-family: Open Sans; font-weight: 700; word-wrap: break-word; color: #023535;" class=""><strong><?= $productsAll[$key]['title_product'] ?></strong></a>
+                    <a style="font-family: Open Sans; font-weight: 700; word-wrap: break-word; color: #023535;" class="">
+                    <strong><?= $productsAll[$key]['title_product'] ?></strong></a>
                   </div>
 
                   <div class=col-7>
                     <p class="" style="font-family: 'Montserrat', sans-serif;">
-                      <i><?= substr($productsAll[$key]['description_product'], 0, 12) . ' ...' ?></i>
+                      <i><?= substr($productsAll[$key]['description_product'], 0, 20) . ' ...' ?></i>
                     </p>
                   </div>
 
@@ -175,15 +82,16 @@ include_once '../partials/message.php';
 
 
           <!-- Titre Inscris toi ! -->
-          <div id="welcome" class="mt-5 p-4">
-            <div style="width: 90%; height: 100%; color: #023535; font-size: 24px; font-family: Open Sans;
-font-weight: 600; word-wrap: break-word">Inscris ton application, ton site!</div>
-            <div style="width: 100%; height: 100%"><span style="color: #023535; font-size: 16px;
-font-family: Montserrat; font-weight: 400; word-wrap: break-word">Et deviens le "Mark Zuckerberg" of the new tech de 2024. </span>
-              <a href="./new_product.php" style="color: #0CABA8; font-size: 16px; font-family: Montserrat; font-weight: 400; word-wrap: break-word">Take your chance.</a>
+          
+          <!-- bloc separateur Titre welcome -->
+          <div class="p-3" style="background-color: #92dfb031;" id="bloc_titre">
+            <div id="text_big_title">
+            <div>Inscris ton application, ton site!</div></div>
+            
+            <div id="little_title_accueil"><span>Et deviens le "Mark Zuckerberg" of the new tech de 2024. </span>
+              <a href="./new_product.php" id="liens">Take a your chance.</a>
             </div>
-          </div>
-
+            </div>
 
         </div>
 
@@ -198,28 +106,28 @@ font-family: Montserrat; font-weight: 400; word-wrap: break-word">Et deviens le 
           $listlikes->execute();
           $likesAll = $listlikes->fetchAll();
  ?>
-  <div id="bloc_right" class="mt-3 ms-5 col-3">
+  <div class="mt-3 ms-5 col-3">
 
-          <div style="color: #023535; font-size: 16px; font-family: Open Sans;">TOP UP !</div>
+          <div id="little_title_accueil">TOP UP !</div>
 
 <?php
 foreach ($likesAll as $key => $value) { ?>
 
           <div class="mt-3" style="font-size: small;">
-            <p><strong><?= $likesAll[$key]['title_product'] ?> - <strong><?= $likesAll[$key]['counter_product'] ?></p>
+            <p><?= $likesAll[$key]['title_product'] ?> - <strong><?= $likesAll[$key]['counter_product'] ?></p>
             </div>
             <?php  } ?>
 
           <!--deuxieme ligne horizontal centrer-->
           <section class=" grid text-center mt-5">
-            <div id="line_under_nav" class="g-col-6 g-col-md-4 mt-2" style="width: 450px; border: 1px rgba(111, 223, 221, 0.73) solid"></div>
+            <div id="line_under_nav" class=""></div>
           </section>
 
 
 
           <!-- Liste des derniers commentaires-->
           <div class="mt-3 col-7">
-          <div style="color: #023535; font-size: 16px; font-family: Open Sans;">TOP COMMENTAIRES !</div>
+          <div id="little_title_accueil">TOP COMMENTAIRES !</div>
 
 <?php
           // Récupération de la liste des produits
@@ -236,16 +144,11 @@ foreach ($likesAll as $key => $value) { ?>
             
             foreach ($usersAll as $key => $value) { ?>
             
-            <div class="mt-3" style="color: #023535; font-size: 15px; font-family: Open Sans;
-            font-weight: 700; word-wrap: break-word">
-             <a style="font-family: Open Sans; color: #023535;" class="" href="./">
-                <strong><?= $usersAll[$key]['pseudo'] ?></strong></a>
-            </div>
-
-            <div class="fw-lighter" style="font-family: Open Sans; font-size: 9px"><p><?= $usersAll[$key]['created_at'] ?></p></div>
-
-            <div class="" style="font-style: oblique; font-size: 12px;">
-              <p><?= $usersAll[$key]['commentary'] ?><a style="text-decoration-color: #0CABA8;" href="#demo">...suite</a></p></div>
+           <div id=menu_top_comm_pseudo class="mt-2"> <p><strong><?= $usersAll[$key]['pseudo'] ?></strong></div>
+           <div id=menu_top_comm_date class=""><?= $usersAll[$key]['image'] ?></div>
+           <div id=menu_top_comm_date class=""><?= $usersAll[$key]['created_at'] ?></div>
+           <div id="menu_top_comm_commentary" class="">
+              <p><?= '" ' . substr($usersAll[$key]['commentary'], 0, 40) . ' ..."' ?><a style="" href="#demo">...suite</a></p></div>
             
             <?php  } ?>
     
