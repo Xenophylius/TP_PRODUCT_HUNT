@@ -78,6 +78,11 @@
                     <!-- deconnexion et profil en justift-end-->
                     <div style="display: flex; justify-content: end;" class="d-flex" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-items">
+                                <div id="changeColor">
+                                    <i class="fa-solid fa-paint-roller fa-xl px-2 mt-2" id="swipLogoColor2" onclick="changeColor()"></i>
+                                </div>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link active ml-3 text-secondary" aria-current="page"
                                 href="../process/authentification/deco.php">Deconnexion</a>
@@ -104,7 +109,7 @@
                         &nbsp; &nbsp; | &nbsp;
                         <button id="menu2_color" style="font-size: 10pt;" type="button" class="btn"><strong>Best Commentaires</strong></button>
                         &nbsp; &nbsp; | &nbsp;
-                        <button id="menu2_color" style="font-size: 10pt;" type="button" class="btn"><strong>Liste utilisateurs</strong></button>
+                        <a href="../pages/liste_utilisateurs.php" id="menu2_color" style="font-size: 10pt;" type="button" class="btn"><strong>Liste utilisateurs</strong></a>
                         &nbsp; &nbsp; | &nbsp;
 
                         <!-- organism pour contrle ethique des applis ou des IA -->

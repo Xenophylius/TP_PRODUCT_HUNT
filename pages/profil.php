@@ -27,6 +27,27 @@ $products = $productUser->fetchAll();
 
 ?>
 
+<<<<<<< Updated upstream
+<main class="text-center">
+    <section>
+        <h3 class="textColor">Votre pseudo : <?= ucfirst($userInfo['pseudo']) ?></h3>
+        <h3 class="textColor">Votre mail : <?= $userInfo['mail'] ?></h3>
+
+        <?php 
+            if (empty($userInfo['image'])) { ?>
+                <img src="../upload/photoProfil/Profile-Male-PNG.png" alt="Photo de profil de base" class="w-25">
+           <?php } else {
+        ?>
+        <img src="../upload/photoProfil/<?= $userInfo['image'] ?>" alt="Photo du profil" class="w-25 rounded-circle"> <?php } ?>
+
+        <form action="../process/authentification/add_image.php" method="post" enctype="multipart/form-data">
+            <label for="image_profil" class="textColor"><strong class="textColor">Photo de profil</strong></label>
+            <input type="file" class="form-control my-2 rounded-3 w-25 mx-auto" name="image_profil">
+
+            <button type="submit" class="btn my-3"  id="inscription">Ajouter votre photo de profil.</button>
+        </form>
+    </section>
+=======
 <section class="container">
 
 <div class="d-flex justify-content-Evenly">
