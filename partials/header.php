@@ -13,8 +13,6 @@
 </head>
 
 <body>
-
-
     <main>
 
         <!-- creation de la navbar suivant les données de figma -->
@@ -23,18 +21,22 @@
                 <div class="container-fluid d-flex flex-row">
 
                     <!-- integration du logo a la navbar -->
-                    <a class="navbar-brand" href="../pages/index_accueil.php"><img src="../images/logo_product_hunt.png" style="width:200px;height: 54px" alt="logo_product_hunt"></a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
+                    <a id="logo_couleur" class="navbar-brand" href="../pages/index_accueil.php">
+                    <img src="../images/logo_product_hunt.png" style="width:200px;height: 54px" alt="logo_product_hunt"></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
                     </button>
 
+
                     <!-- navbar champs de recherche -->
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Recherche Produit" aria-label="Search">
+                    <form action="../process/product/product_resultat.php" name="search_valider" method="GET" class="d-flex" role="search">
+                    <input name="search_valider" class="form-control me-2" type="search" placeholder="Recherche Produit" aria-label="Search">
                         <button id="bouton_profil" class="btn btn-outline-success" type="submit">Rechercher</button>
                     </form>
                     &nbsp; &nbsp; |
-
+                
 
                     <!-- navbar line direct vers les produits-->
                     <div class="me-2 collapse navbar-collapse" id="navbarSupportedContent">
@@ -43,6 +45,7 @@
                                 <a class="nav-link active ml-3" href="#demo"> &nbsp; &nbsp; Produits</a>
                             </li>
 
+                            
                             <!-- navbar lien nouveau produit-->
                             <div class="me-2 collapse navbar-collapse" id="navbarSupportedContent">
                                 &nbsp; &nbsp; |
@@ -50,12 +53,13 @@
                                     <li class="nav-item">
                                         <a class="nav-link active ml-3" aria-current="page" href="../pages/new_product.php"> &nbsp; &nbsp; Nouveau produits</a>
                                     </li>
-
+                                    
 
 
                                     <!-- navbar menus déroulant pour les categories-->
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Catégories</a>
+                                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false"> Catégories</a>
 
                                         <ul class="dropdown-menu">
                                             <li><a class="dropdown-item" href="../pages/list_product.php">Applications</a></li>
@@ -66,10 +70,9 @@
                                             <li><a class="dropdown-item" href="../pages/list_product.php">Autres</a></li>
                                         </ul>
                                     </li>
+                                </div>
+                        </div>
 
-                            </div>
-
-                    </div>
 
 
                     <!-- deconnexion et profil en justift-end-->
@@ -81,7 +84,8 @@
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active ml-3 text-secondary" aria-current="page" href="../process/authentification/deco.php">Deconnexion</a>
+                                <a class="nav-link active ml-3 text-secondary" aria-current="page"
+                                href="../process/authentification/deco.php">Deconnexion</a>
                             </li>
 
                             <a id="bouton_profil" href="../pages/profil.php" class="btn btn-success" >Profil utilisateur</a>
@@ -92,7 +96,7 @@
 
         <!-- ligne en dessous de la navbar-->
         <section>
-            <div id="line_under_nav" class="mt-2" style="width: 100%; height: 100%; border: 1px rgba(111, 223, 221, 0.73) solid"></div>
+            <div id="menu_up" class="mt-1"></div>
         </section>
 
         <!-- Menu des raccourci plus petit -->
@@ -113,7 +117,7 @@
 
                         <!--deuxieme ligne horizontal centrer-->
                         <section class=" grid text-center">
-                            <div id="line_under_nav" class="g-col-6 g-col-md-4 mt-2" style="width: 600px; border: 1px rgba(184, 236, 235, 0.73) solid"></div>
+                            <div id="menu_up" class="g-col-4 mt-2"></div>
                         </section>
                     </div>
 

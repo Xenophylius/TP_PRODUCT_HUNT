@@ -2,7 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Open+Sans:wght@300&display=swap');
 
-
 /*Police google font : Open Sans pour les titres*/
 /*Police google font : Montserrat pour les paragraphes*/
 /* Variables couleurs de base */
@@ -11,8 +10,8 @@
  --second-font-family: 'Montserrat', sans-serif;
  --main-color : #023535;
  --second-color : #0CABA8;
+ --third-color : #80ac8093;
 }
-
 
 #inscription {
   background: rgba(12, 171, 168, 0.5);
@@ -26,18 +25,6 @@
   opacity: 0.7;
 }
 
-
-#bloc_right {
-  color : var(--main-color);
-  font-family : var(--main-font-family);
-}
-
-
-#welcome {
-  width: 800px;
-  background: rgba(12, 171, 168, 0.052);
-  color : var(--main-color);  
-}
 
 #menu2 {
 
@@ -58,26 +45,22 @@
 
 #menu_left {
 
-border-right: solid;
-border-color: #0caba820;
+border-right: 1px solid var(--third-color);
 
 }
 
 .textColor {
   color : var(--main-color);
 }
-
 #bouton_profil {
   background-color: var(--second-color);
   color: white;
 }
 
-
 #bouton_profil:hover {
-  background-color: var(--main-color);
-
+ background-color: var(--main-color);
+  
 }
-
 
 #bouton_produits_little_bar {
 
@@ -103,6 +86,7 @@ border-color: #0caba820;
 }
 
 #slide {
+  
   position: fixed;
   left: 30%;
   right: 30%;
@@ -135,3 +119,66 @@ border-color: #0caba820;
   }
 
 }
+
+#menu_top_comm_pseudo {
+  font-size: 11pt;
+  font-family : var(--main-font-family);
+  color: var(--second-color);
+
+}
+
+
+#menu_top_comm_date {
+  font-size: 8pt;
+  font-family : var(--main-font-family);
+  color: var(--second-color);
+
+
+
+}
+
+#menu_top_comm_commentary {
+  font-size: 9pt;
+  font-family : var(--second-font-family);
+  
+  }
+
+
+  #menu_up {
+    color: var(--third-color);
+    width: 300px;
+    border-top: 1px solid ;
+    width: 100%; height: 100%;
+  }
+
+
+  
+  #text_big_title {
+  font-weight: bold;
+  font-size: 21pt;
+  font-family : var(--main-font-family);
+
+
+  }
+  
+  
+  #text_menu {
+
+  font-size: 9pt;
+  font-family : var(--second-font-family);
+  
+  }
+
+
+  #little_title_accueil {
+    font-size: 10pt;
+    font-family : var(--second-font-family);
+
+  }
+
+  #liens {
+    font-style: italic;
+    color: var(--main-font-family);
+
+  }
+
