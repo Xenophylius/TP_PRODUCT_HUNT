@@ -42,4 +42,6 @@ include_once '../../debug/debug.php';
 }
 die;
 
+?>
 
+<table></table>
