@@ -13,7 +13,7 @@ if (empty($_SESSION['id']) &&
 
 // Vérification que le commentaire n'est pas vide
 if (empty($_POST['commentary'])) {
-    header('Location: ../../pages/list_product.php?error=Votre commentaire n\'est pas valide.');
+    header('Location: ../../pages/index_accueil.php?error=Votre commentaire n\'est pas valide.');
     die;
 }
 
@@ -27,5 +27,5 @@ $addCommentary->execute([
     $_POST['commentary']
 ]);
 
-header('Location: ../../pages/list_product.php?success=Merci pour votre commentaire');
+header('Location: ../../pages/index_accueil.php?success=Merci pour votre commentaire');
 die;

@@ -9,3 +9,5 @@ function changeColor() {
     bgMain.style.setProperty('--main-color', '#2C439B')
     bgMain.style.setProperty('--second-color', '#33C7F7')
 }
+
+

@@ -25,11 +25,11 @@ require_once('../connexion.php');
         $_GET['id_product']
     ]);
 
-    header('Location: ../../pages/list_product.php?success=Merci pour votre like.');
+    header('Location: ../../pages/index_accueil.php?success=Merci pour votre like.');
     } else {
         $unLike = $db->prepare("DELETE FROM like_product WHERE id_user=$id AND id_product=$id_product");
         $unLike->execute();
 
-        header('Location: ../../pages/list_product.php?error=Vous avez supprimé votre like de ce produit.');
+        header('Location: ../../pages/index_accueil.php?error=Vous avez supprimé votre like de ce produit.');
     }
 ?>
