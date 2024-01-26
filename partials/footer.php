@@ -4,7 +4,7 @@
             <div id="menu_up" class="mt-1"></div>
         </section>
 
-<div><p  id="text_menu" class="mt-3 d-flex justify-content-center text-success">Product Hunt - 2024 ©</p></div>
+<div><p  id="text_menu" class="mt-3 d-flex justify-content-center text-success">Product Hunt - 2024 © Christophe Delahaye & Sylvain Matot</p></div>
  
  </section>
  

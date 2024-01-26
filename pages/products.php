@@ -1,27 +1,25 @@
-<?php
+<?php 
 session_start();
 
 // Si l'utilisateur n'est pas connecté, redirigé vers la page de connexion/inscription
-if (
-  empty($_SESSION['id']) &&
-  empty($_SESSION['pseudo']) &&
-  empty($_SESSION['mail'])
-) {
-  header('Location: ../index.php?error=Inscrivez vous ou connectez vous pour accéder à cette page.');
-  die;
+if (empty($_SESSION['id']) &&
+    empty($_SESSION['pseudo']) &&
+    empty($_SESSION['mail'])) {
+        header('Location: ../index.php?error=Inscrivez vous ou connectez vous pour accéder à cette page.');
+        die;
 }
 
-require_once '../partials/header.php';
+require_once '../partials/header.php'; 
 include_once '../partials/message.php';
-// include_once '../debug/debug.php';
 
-  
-  // Récupération de la liste des produits
+require_once '../process/connexion.php';
+
+
+// Récupération de la liste des produits
   require_once('../process/connexion.php');
-  $listProduct = $db->prepare("SELECT * FROM products LIMIT 10");
+  $listProduct = $db->prepare("SELECT * FROM products");
   $listProduct->execute();
   $productsAll = $listProduct->fetchAll();
-
   ?>
 <main>
 
@@ -29,8 +27,8 @@ include_once '../partials/message.php';
   <section>
 
     <div class="container">
-      <div class="row">
-        <div id="menu_left" class="col-8 p-4">
+      
+        
 
           <!-- bloc separateur Titre welcome -->
           <div class="p-3" style="background-color: #92dfb031;" id="bloc_titre">
@@ -74,15 +72,6 @@ include_once '../partials/message.php';
                       <i><?= ucfirst(substr($productsAll[$key]['description_product'], 0, 20)) . ' ...' ?></i>
 
                       <?php 
-                          // Récupération de la catégorie du produit
-                          $categoryList = $db->prepare("SELECT * FROM category WHERE id_product=?");
-                          $categoryList->execute([$productsAll[$key]['id']]);
-                          $category = $categoryList->fetch();
-                      ?>
-
-                      <br><i>#<?= $category['name_category'] ?></i>
-
-                      <?php 
                             // Requete pour récupérer nombre de LIKE
                             $id_product = $productsAll[$key]['id'];
                             $counterLike = $db->prepare("SELECT count(*) FROM like_product WHERE id_product=$id_product");
@@ -103,7 +92,7 @@ include_once '../partials/message.php';
 
               <?php 
                             // Requete pour récupérer les commentaires
-                            $listCommentary = $db->prepare("SELECT * FROM commentary INNER JOIN users ON commentary.id_user = users.id WHERE id_product=? ORDER BY created_at DESC");
+                            $listCommentary = $db->prepare("SELECT * FROM commentary INNER JOIN users ON commentary.id_user = users.id WHERE id_product=?");
                             $listCommentary->execute([$id_product]);
                             $commentary = $listCommentary->fetchAll();
 
@@ -125,7 +114,7 @@ include_once '../partials/message.php';
                 <div class="modal-content">
                   <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
-                    <a class="btn btn-secondary" href="../pages/index_accueil.php">Close</a>
+                    <a class="btn btn-secondary" href="../pages/products.php">Close</a>
                   </div>
                   <div class="modal-body position-relative">
                     <p id="idProductForModal"> 
@@ -134,7 +123,7 @@ include_once '../partials/message.php';
                     </p>
                   </div>
                   <div class="modal-footer">
-                    <a class="btn btn-secondary" href="../pages/index_accueil.php">Close</a>
+                    <a class="btn btn-secondary" href="../pages/products.php">Close</a>
                 
                   </div>
                 </div>
@@ -166,52 +155,6 @@ include_once '../partials/message.php';
           $listlikes->execute();
           $likesAll = $listlikes->fetchAll();
  ?>
-  <div class="mt-3 ms-5 col-3">
-
-          <div id="little_title_accueil">TOP UP !</div>
-
-<?php
-foreach ($likesAll as $key => $value) { ?>
-
-          <div class="mt-3" style="font-size: small;">
-            <p><img src="../upload/<?= $likesAll[$key]['image_product'] ?>" alt="" style="width: 20px;" class="me-2"><strong><?= ucfirst($likesAll[$key]['title_product']) ?></strong> </p>
-            </div>
-            <?php  } ?>
-
-          <!--deuxieme ligne horizontal centrer-->
-          <section class=" grid text-center mt-5">
-            <div id="line_under_nav" class=""></div>
-          </section>
-
-
-
-          <!-- Liste des derniers commentaires-->
-          <div class="mt-3 col-7">
-          <div id="little_title_accueil">TOP COMMENTAIRES !</div>
-
-<?php
-          // Récupération de la liste des produits
-  require_once('../process/connexion.php');
-  $listusers = $db->prepare("SELECT * FROM users JOIN commentary ON users.id = commentary.id_user ORDER BY created_at DESC LIMIT 3");
-  $listusers->execute();
-  $usersAll = $listusers->fetchAll();
-
-  // var_dump($usersAll);
-  // die;
-  
-
-            // <!-- Liste des meilleurs Comment Menu à droite contenu par user-->
-            
-            foreach ($usersAll as $key => $value) { ?>
-            
-           <div id=menu_top_comm_pseudo class="mt-2"><img src="../upload/photoProfil/<?php if (empty($usersAll[$key]['image'])) {?>Profile-Male-PNG.png"<?php } else { echo $usersAll[$key]['image'] . '"';} ?> style="width: 20px;" class="me-2" alt="Photo de profil"><strong><?= ucfirst($usersAll[$key]['pseudo']) ?></strong></div>
-
-           <div id=menu_top_comm_date class=""><i><?= $usersAll[$key]['created_at'] ?></i></div>
-           <div id="menu_top_comm_commentary" class="">
-              <p><?= '" ' . ucfirst(substr($usersAll[$key]['commentary'], 0, 40)) . ' ..."' ?><a style="" href="../pages/best_commentary.php?id=<?= $usersAll[$key]['id_user'] ?>">...suite</a></p></div>
-            
-            <?php  } ?>
-    
 
 
   </section>
@@ -268,5 +211,4 @@ foreach ($likesAll as $key => $value) { ?>
  
 </script>
 
-<?php include '../partials/footer.php'; ?>
-
+<?php require_once '../partials/footer.php'; ?>
