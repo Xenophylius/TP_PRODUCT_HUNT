@@ -22,8 +22,7 @@ if (empty($_SESSION['id']) &&
         <textarea class="form-control my-2 rounded-3" rows="5" id="description_product" placeholder="Description de votre produit" name="description_product"></textarea>
 
         <label for="category"><strong>Catégorie : </strong></label>
-        <select name="category" id="category" class="rounded-3 my-2">
-            <option value="">--Choisir une catégorie--</option>
+        <select name="category" id="category" class="dropdown w-25 rounded-3 my-2 text-center">
             <option value="Application">Application</option>
             <option value="Site Web">Site Web</option>
             <option value="Autre">Autre</option>

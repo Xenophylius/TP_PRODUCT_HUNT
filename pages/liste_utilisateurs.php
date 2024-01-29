@@ -23,7 +23,7 @@ require_once '../process/connexion.php';
         <?php 
             foreach ($users as $key => $value) { ?>
                 <section class="border-bottom">
-                    <img src="../upload/photoProfil/<?= $users[$key]['image']?>" alt="Photo de profil" style="height: 100px;" class="my-3 mx-5">
+                    <img src="../upload/photoProfil/<?php if (empty($users[$key]['image'])) {?>Profile-Male-PNG.png"<?php } else { echo $users[$key]['image'] . '"';} ?> alt="Photo de profil" style="height: 100px;" class="my-3 mx-5">
                     <h3 class="textColor d-inline"><?= ucfirst($users[$key]['pseudo']) ?></h3>
                 </section>
           <?php } ?>
