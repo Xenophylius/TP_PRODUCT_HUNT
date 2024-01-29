@@ -29,12 +29,13 @@ include_once '../../debug/debug.php';
 
   $listProduct = $db->prepare("SELECT * FROM products WHERE title_product LIKE '% . $valeur . %'");
   $listProduct->execute();
-  // $stmt->execute([$_GET['name']]);
  
   $productsAll = $listProduct->fetchAll();
-
-  var_dump($productsAll);
+$listProduct->closeCursor();
    
+
+echo json_encode($productsAll);
+
     echo "La valeur que vous avez entrée est : " . $productsAll;
 } else {
    
@@ -44,4 +45,16 @@ die;
 
 ?>
 
-<table></table>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+
+
+
+
+    </thead>
+</table>

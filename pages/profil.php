@@ -46,7 +46,7 @@ $products = $productUser->fetchAll();
                     <?php } else {
                     ?>
                         <img src="../upload/photoProfil/<?= $userInfo['image'] ?>" alt="Photo du profil" class="w-50 rounded-circle"> <?php } ?>
-                    <form action="../process/authentification/add_image.php" method="post" enctype="multipart/form-data">
+                    <form action="../../process/authentification/add_image.php" method="post" enctype="multipart/form-data">
 
 
                         <div class="mb-auto p-2">
