@@ -42,7 +42,7 @@
                     <div class="me-2 collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link active ml-3" href="#demo"> &nbsp; &nbsp; Produits</a>
+                                <a class="nav-link active ml-3" href="../pages/products.php"> &nbsp; &nbsp; Produits</a>
                             </li>
 
                             
@@ -62,12 +62,12 @@
                                         aria-expanded="false"> Catégories</a>
 
                                         <ul class="dropdown-menu">
-                                            <li><a class="dropdown-item" href="../pages/list_product.php">Applications</a></li>
-                                            <li><a class="dropdown-item" href="../pages/list_product.php">Site Web</a></li>
+                                            <li><a class="dropdown-item" href="../pages/application_category.php">Applications</a></li>
+                                            <li><a class="dropdown-item" href="../pages/site_web_category.php">Site Web</a></li>
                                             <li>
                                                 <hr class="dropdown-divider">
                                             </li>
-                                            <li><a class="dropdown-item" href="../pages/list_product.php">Autres</a></li>
+                                            <li><a class="dropdown-item" href="../pages/autre_category.php">Autres</a></li>
                                         </ul>
                                     </li>
                                 </div>
@@ -105,9 +105,9 @@
 
                 <div class="m-2" role="toolbar" aria-label="Toolbar with button groups">
                     <div class="" role="group" aria-label="First group">
-                        <button id="bouton_produits_little_bar" type="button" class="p-1"><strong>Produits</strong></button>
+                        <a id="bouton_produits_little_bar" type="button" class="p-1 text-decoration-none" href="../pages/index_accueil.php"><strong>Produits</strong></a>
                         &nbsp; &nbsp; | &nbsp;
-                        <button id="menu2_color" style="font-size: 10pt;" type="button" class="btn"><strong>Best Commentaires</strong></button>
+                        <a href="../pages/best_commentary.php" id="menu2_color" style="font-size: 10pt;" type="button" class="btn"><strong>Best Commentaires</strong></a>
                         &nbsp; &nbsp; | &nbsp;
                         <a href="../pages/liste_utilisateurs.php" id="menu2_color" style="font-size: 10pt;" type="button" class="btn"><strong>Liste utilisateurs</strong></a>
                         &nbsp; &nbsp; | &nbsp;

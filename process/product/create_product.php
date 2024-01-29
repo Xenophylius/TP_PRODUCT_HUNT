@@ -61,9 +61,17 @@ if (empty($_POST['title_product']) &&
         $randomFileName,
         $_POST['description_product']
     ]);
+
+    $id_product = $db->lastInsertId();
+
+    $addCategory = $db->prepare("INSERT INTO category (id_product, name_category) VALUES (?,?) ");
+    $addCategory->execute([
+        $id_product,
+        $_POST['category']
+    ]);
     
     if($resultat) {
-        header('Location: ../../pages/list_product.php?success=Nouveau produit créé.');
+        header('Location: ../../pages/index_accueil.php?success=Nouveau produit créé.');
     }
 
 ?>

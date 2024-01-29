@@ -21,6 +21,14 @@ if (empty($_SESSION['id']) &&
         <label for="description_product" ><strong class="textColor">Description</strong></label>
         <textarea class="form-control my-2 rounded-3" rows="5" id="description_product" placeholder="Description de votre produit" name="description_product"></textarea>
 
+        <label for="category"><strong>Catégorie : </strong></label>
+        <select name="category" id="category" class="rounded-3 my-2">
+            <option value="">--Choisir une catégorie--</option>
+            <option value="Application">Application</option>
+            <option value="Site Web">Site Web</option>
+            <option value="Autre">Autre</option>
+        </select><br>
+
         <label for="image_product" class="textColor"><strong class="textColor">Image</strong></label>
         <input type="file" class="form-control my-2 rounded-3" name="image_product">
 

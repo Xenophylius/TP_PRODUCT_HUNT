@@ -15,13 +15,14 @@ require_once '../partials/header.php';
 include_once '../partials/message.php';
 // include_once '../debug/debug.php';
 
+  
+  // Récupération de la liste des produits
+  require_once('../process/connexion.php');
+  $listProduct = $db->prepare("SELECT * FROM products LIMIT 10");
+  $listProduct->execute();
+  $productsAll = $listProduct->fetchAll();
 
-// Récupération de la liste des produits
-require_once('../process/connexion.php');
-$listProduct = $db->prepare("SELECT * FROM products LIMIT 10");
-$listProduct->execute();
-$productsAll = $listProduct->fetchAll();
-?>
+  ?>
 <main>
 
   <!-- Liste des applications menu central -->
@@ -60,39 +61,48 @@ $productsAll = $listProduct->fetchAll();
                   <img style="width: 100%;" src="../upload/<?= $productsAll[$key]['image_product'] ?>" alt="Image du produit">
                 </div>
 
-                <!-- titre appli -->
-                <div class=col-3>
-                  <div id="text_moyen_title" class="">
-                    <?= $productsAll[$key]['title_product'] ?></div>
-                </div>
-                
-                <!-- description appli -->
-                <div class=col-5>
-                  <p id="text_menu" class="m-1">
-                    <div><?= substr($productsAll[$key]['description_product'], 0, 25) . ' ...' ?></div>
+                  <div class=col-4>
+                    <a style="font-family: Open Sans; font-weight: 700; word-wrap: break-word; color: #023535;" class="">
+                    <strong><?= ucfirst($productsAll[$key]['title_product']) ?></strong></a>
+                  </div>
+
+                  <div class=col-5>
+                    <p class="" style="font-family: 'Montserrat', sans-serif;">
+                      <i><?= ucfirst(substr($productsAll[$key]['description_product'], 0, 20)) . ' ...' ?></i>
+
+                      <?php 
+                          // Récupération de la catégorie du produit
+                          $categoryList = $db->prepare("SELECT * FROM category WHERE id_product=?");
+                          $categoryList->execute([$productsAll[$key]['id']]);
+                          $category = $categoryList->fetch();
+                      ?>
+
+                      <br><i>#<?= $category['name_category'] ?></i>
+
+                      <?php 
+                            // Requete pour récupérer nombre de LIKE
+                            $id_product = $productsAll[$key]['id'];
+                            $counterLike = $db->prepare("SELECT count(*) FROM like_product WHERE id_product=$id_product");
+                            $counterLike->execute();
+                            $like = $counterLike->fetch();
+                        ?>
+                        <a href="../process/product/like_product.php?id_product=<?= $productsAll[$key]['id'] ?>" class="btn position-absolute end-0" style="margin-right: 15%;"><i class="fa-solid fa-circle-up fa-xl"></i><span class="font-weight-bold mx-2"><?= $like[0] ?></span></a>
+
+                        <a type="button" class="btn btn-success position-absolute end-0 me-3" id="magicButton" data-bs-toggle="modal" data-bs-target="#exampleModal" data-id="<?= $productsAll[$key]['id'] ?>" data-title="<?= $productsAll[$key]['title_product']?>" data-description="<?= $productsAll[$key]['description_product']?>" data-image="<?= $productsAll[$key]['image_product']?>" data-like="<?= $like[0] ?>">
+                        Plus d'infos
+                        </a> 
                     </p>
+                  </div>
+
                 </div>
                 
-                <div class="col-3">
-                    <?php
-                    // Requete pour récupérer nombre de LIKE
-                    $id_product = $productsAll[$key]['id'];
-                    $counterLike = $db->prepare("SELECT count(*) FROM like_product WHERE id_product=$id_product");
-                    $counterLike->execute();
-                    $like = $counterLike->fetch();
-                    ?>
-                    <a href="../process/product/like_product.php?id_product=<?= $productsAll[$key]['id'] ?>" class="btn"><i class="fa-solid fa-circle-up fa-xl"></i><span class="font-weight-bold mx-2"><?= $like[0] ?></span></a>
-                </div>
-              </div>
+              </section>
 
-              <!-- <div class="mb-3" id="little_title_little_accueil">design . technologie  . site-web</div> -->
-            </section>
-
-            <?php
-            // Requete pour récupérer les commentaires
-            $listCommentary = $db->prepare("SELECT * FROM commentary INNER JOIN users ON commentary.id_user = users.id WHERE id_product=?");
-            $listCommentary->execute([$id_product]);
-            $commentary = $listCommentary->fetchAll();
+              <?php 
+                            // Requete pour récupérer les commentaires
+                            $listCommentary = $db->prepare("SELECT * FROM commentary INNER JOIN users ON commentary.id_user = users.id WHERE id_product=? ORDER BY created_at DESC");
+                            $listCommentary->execute([$id_product]);
+                            $commentary = $listCommentary->fetchAll();
 
             // Boucle pour fetchAll les commentaires
             foreach ($commentary as $key => $value) { ?>
@@ -191,14 +201,13 @@ $productsAll = $listProduct->fetchAll();
             // <!-- Liste des meilleurs Comment Menu à droite contenu par user-->
 
             foreach ($usersAll as $key => $value) { ?>
+            
+           <div id=menu_top_comm_pseudo class="mt-2"><img src="../upload/photoProfil/<?php if (empty($usersAll[$key]['image'])) {?>Profile-Male-PNG.png"<?php } else { echo $usersAll[$key]['image'] . '"';} ?> style="width: 20px;" class="me-2" alt="Photo de profil"><strong><?= ucfirst($usersAll[$key]['pseudo']) ?></strong></div>
 
-              <div id=menu_top_comm_pseudo class="mt-2"><img src="../upload/photoProfil/<?= $usersAll[$key]['image'] ?>" style="width: 20px;" class="me-2" alt="Photo de profil"><strong><?= $usersAll[$key]['pseudo'] ?></strong></div>
-
-              <div id=menu_top_comm_date class=""><i><?= $usersAll[$key]['created_at'] ?></i></div>
-              <div id="menu_top_comm_commentary" class="">
-                <p><?= '" ' . ucfirst(substr($usersAll[$key]['commentary'], 0, 40)) . ' ..."' ?><a style="" href="#demo">...suite</a></p>
-              </div>
-
+           <div id=menu_top_comm_date class=""><i><?= $usersAll[$key]['created_at'] ?></i></div>
+           <div id="menu_top_comm_commentary" class="">
+              <p><?= '" ' . ucfirst(substr($usersAll[$key]['commentary'], 0, 40)) . ' ..."' ?><a style="" href="#demo">...suite</a></p></div>
+            
             <?php  } ?>
 
 
@@ -236,24 +245,25 @@ $productsAll = $listProduct->fetchAll();
     });
   }
 
-  let idCommentary = document.querySelectorAll('#commentary');
-  for (let i = 0; i < idCommentary.length; i++) {
-    let idCommentaryForModal = idCommentary[i].dataset.idCommentary;
-    let pseudoCommentaryForModal = idCommentary[i].dataset.pseudo;
-    let dateCommentaryForModal = idCommentary[i].dataset.date;
-    let commentaryCommentaryForModal = idCommentary[i].dataset.commentary;
-
-
-    document.getElementById("idCommentaryForModal").innerHTML += `
-                            <?php foreach ($commentary as $key => $value) {
-                              echo '<section class="w-100 border-bottom border-3">';
-                              echo "<h5 >Commentaire de : " . $commentary[$key]['pseudo'] . "du <i>" . $commentary[$key]['created_at'] . "</i></h5>";
-                              echo "<p >Le commentaire : " . $commentary[$key]['commentary'] . "</p>";
-                              echo "</section>";
-                            } ?>
+    let idCommentary = document.querySelectorAll('#commentary');
+      for (let i = 0; i < idCommentary.length; i++) {
+            let idCommentaryForModal = idCommentary[i].dataset.idCommentary;
+            let pseudoCommentaryForModal = idCommentary[i].dataset.pseudo;
+            let dateCommentaryForModal = idCommentary[i].dataset.date;
+            let commentaryCommentaryForModal = idCommentary[i].dataset.commentary;
+            
+            
+            document.getElementById("idCommentaryForModal").innerHTML += `
+              <div class="border-bottom border-3">
+              <p><strong>${pseudoCommentaryForModal}</strong>
+              <i>${dateCommentaryForModal}</i> </p>
+              <p>${commentaryCommentaryForModal}</p> 
+              </div>
+                          
             `
 
   };
 </script>
 
 <?php include '../partials/footer.php'; ?>
+
