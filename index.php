@@ -21,15 +21,21 @@ if (!empty($_SESSION['id']) &&
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="./style.css">
 </head>
-<body>
+<body style="background-image: url(./images/fond\ bleu.jpg);">
 
 <main class="text-center h-100" >
-    <img src="./images/logo.png" alt="Logo Product Hunt" class="w-50" >
-        <div class="rounded-3 m-3 p-3 ">
+    <img src="./images/logo_product_hunt_plusclair.png" alt="Logo Product Hunt" class="w-25" >
+       
+    <div id="little_title_accueil_clair"><span>Vote pour ton application préférée ou inscris ton projet </span>
+              <a href="./index.php" id="liens">No pain no gain.</a>
+            </div>
+    
+    
+    <div class="rounded-3 m-3 p-3 ">
             <!-- INSCRIPTION -->
             <div class="row text-center w-75 mx-auto ">
                 <div class="col-12 col-md-5 rounded-5 mx-auto" id="inscription">
-                    <h2 class="rounded-3 mx-auto my-2 "><strong>Inscription</strong></h2>
+                    <h2 id="text_big_title" class="m-2"><strong>Inscription</strong></h2>
                     <form action="./process/authentification/register.php" method="post">
                         <div class="form-floating mb-3 text-dark">
                             <label for="pseudo">Pseudo</label>
@@ -48,7 +54,7 @@ if (!empty($_SESSION['id']) &&
                 </div>
             <!-- CONNEXION -->
                 <div class="col-12 col-md-5 rounded-5 mx-auto py-auto" id="inscription">
-                    <h2 class="rounded-3 m-2 mx-auto">Connexion</h2>
+                    <h2 id="text_big_title" class="m-2">Connexion</h2>
                     <form action="./process/authentification/login.php" method="post" class="py-4">
                         <div class="form-floating mb-3 text-dark">
                             <input type="email" class="form-control " id="mail" placeholder="name@example.com" name="mail">
